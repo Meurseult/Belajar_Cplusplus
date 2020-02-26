@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    
+    const long int nilSeratusRib {100000};
+    const long int nilLimpulRib {50000};
+    const long int nilDualimRib {25000};
+    const long int nilDuaPulRib {20000};
+    const long int nilLimbelRib {15000};
+    const long int nilSepulRib {10000};
+    const long int nilLimaRib {5000};
+    const long int nilDuaRib {2000};
+    
+    long int jumlah_uang{};
+    cout << "Masukkan uang jumlah uang Anda : ";
+    cin >> jumlah_uang;
+    
+    long int saldo{},seribu{},duaRib{},limaRib{},sepulRib{},limBelRib{},duaPulRib{},duaLimRib{},limpulRib{},seratusRib{};
+    
+    seratusRib = jumlah_uang / nilSeratusRib;
+    saldo = jumlah_uang % nilSeratusRib;
+    
+    limpulRib = saldo / nilLimpulRib;
+    saldo %= nilLimpulRib;
+    
+    duaLimRib = saldo / nilDualimRib;
+    saldo %= nilDualimRib;
+    
+    duaPulRib = saldo / nilDuaPulRib;
+    saldo %= nilDuaPulRib;
+    
+    limBelRib = saldo / nilLimbelRib;
+    saldo %= nilLimbelRib;
+    
+    sepulRib = saldo / nilSepulRib;
+    saldo %= nilSepulRib;
+    
+    limaRib = saldo / nilLimaRib;
+    saldo %= nilLimaRib;
+    
+    duaRib = saldo / nilDuaRib;
+    saldo %= nilDuaRib;
+    
+    seribu  = saldo;
+    
+    cout << "Seratus ribu : " << seratusRib << endl;
+    cout << "Lima puluh ribu : " << limpulRib << endl;
+    cout << "Dua puluh lima ribu : " << duaLimRib << endl;
+    cout << "Dua puluh ribu : " << duaPulRib << endl;
+    cout << "Lima belas ribu : " << limBelRib << endl;
+    cout << "Sepuluh ribu : " << sepulRib << endl;
+    cout << "Lima ribu : " << limaRib << endl;
+    cout << "Dua ribu : " << duaRib << endl;
+    cout << "Seribu : " << seribu << endl;
+    
+    cout << endl;
+    return 0;
+}
