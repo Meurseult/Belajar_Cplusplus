@@ -1,0 +1,179 @@
+#include <cstdlib>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+using namespace std;
+
+void tampilkanNama();
+void tampilkanProg();
+
+
+int main() {
+
+    tampilkanNama();
+    tampilkanProg();
+
+    int jm;
+    cout<<"\n\tMASUKKAN JUMLAH MAHASISWA : ";
+    cin>>jm;
+
+    string nama[jm];
+    double tugas[jm];
+    double uts[jm];
+    double uas[jm];
+    double akhir[jm];
+
+    for(int i=0; i<jm; i++) {
+
+        cout<<"\n"<<endl;
+        cout<<"\tMAHASISWA KE-"<<(i+1)<<endl;
+        cout<<"\t-------------------------------\n"<<endl;
+        cout<<"\tNAMA MAHASISWA    : ";
+        cin>>nama[i];
+        cout<<"\tNILAI TUGAS       : ";
+        cin>>tugas[i];
+        cout<<"\tNILAI UTS         : ";
+        cin>>uts[i];
+        cout<<"\tNILAI UAS         : ";
+        cin>>uas[i];
+        akhir[i]=(tugas[i]*0.3)+(uts[i]*0.2)+(uas[i]*0.5);
+    }
+
+
+    cout << "\n\n\t1. TAMPILKAN DARI NILAI TERBESAR" << endl;
+    cout << "\t2. TAMPILKAN DARI NILAI TERKECIL" << endl;
+    cout << "\tMASUKAN PILHAN ANDA: ";
+    int pilihan;
+    cin >> pilihan;
+
+    // Melakukan Sorting Berdasarkan Pilihan
+    switch_a :
+    switch (pilihan) {
+    case 1:
+        for(int i=0; i<jm-1; i++) {
+            for(int j=0; j<jm-1-i; j++) {
+                if(akhir[j] < akhir[j+1]) {
+                    //Perubahan nilai akhir
+                    double tmpAkhir = akhir[j];
+                    akhir[j] = akhir[j+1];
+                    akhir[j+1] = tmpAkhir;
+
+                    // perubahan nama
+                    string tmpnama = nama[j];
+                    nama[j] = nama[j+1];
+                    nama[j+1] = tmpnama;
+
+                    // perubahan tugas
+                    double tmpTugas = tugas[j];
+                    tugas[j] = tugas[j+1];
+                    tugas[j+1] = tmpTugas;
+
+                    // perubahan uts
+                    double tmpUts = uts[j];
+                    uts[j] = uts[j+1];
+                    uts[j+1] = tmpUts;
+
+                    // perubahan uas
+                    double tmpUas = uas[j];
+                    uas[j] = uas[j+1];
+                    uas[j+1] = tmpUas;
+
+                }
+            }
+        }
+        break;
+    case 2:
+        for(int i=0; i<jm-1; i++) {
+            for(int j=0; j<jm-1-i; j++) {
+                if(akhir[j] > akhir[j+1]) {
+                    //Perubahan nilai akhir
+                    double tmpAkhir = akhir[j];
+                    akhir[j] = akhir[j+1];
+                    akhir[j+1] = tmpAkhir;
+
+                    // perubahan nama
+                    string tmpnama = nama[j];
+                    nama[j] = nama[j+1];
+                    nama[j+1] = tmpnama;
+
+                    // perubahan tugas
+                    double tmpTugas = tugas[j];
+                    tugas[j] = tugas[j+1];
+                    tugas[j+1] = tmpTugas;
+
+                    // perubahan uts
+                    double tmpUts = uts[j];
+                    uts[j] = uts[j+1];
+                    uts[j+1] = tmpUts;
+
+                    // perubahan uas
+                    double tmpUas = uas[j];
+                    uas[j] = uas[j+1];
+                    uas[j+1] = tmpUas;
+
+                }
+            }
+        }
+        break;
+
+    default:
+        goto switch_a;
+    }
+
+    system("cls");
+    cout<<" \t--------------------------------------------------------------- "<<endl;
+    cout<<" \t                       DAFTAR NILAI "<<endl;
+    cout<<" \t              MATAKULIAH : PEMOGRAMAN KOMPUTER 2 "<<endl;
+    cout<<" \t--------------------------------------------------------------- "<<endl;
+    cout<<" \tNo.   Nama                         Nilai               Grade "<<endl;
+    cout<<" \t      Mahasiswa       ------------------------------"<<endl;
+    cout<<" \t                       Tugas    UTS    UAS    Akhir  "<<endl;
+    cout<<" \t--------------------------------------------------------------- "<<endl;
+    for (int i=0; i<jm; i++) {
+        cout<<setw (11)<<(i+1);
+        cout<<setw (13)<<nama[i];
+        cout<<setw (12)<<tugas [i];
+        cout<<setw (7)<<uts [i];
+        cout<<setw (7)<<uas [i];
+        cout<<setw (9)<<akhir [i];
+
+        if (akhir[i]>=80)
+            cout<<setw (7)<<"A";
+        else if (akhir[i]>=70)
+            cout<<setw (7)<<"B";
+        else if (akhir[i]>=60)
+            cout<<setw (7)<<"C";
+        else if (akhir[i]>=50)
+            cout<<setw (7)<<"D";
+        else if (akhir[i]<50)
+            cout<<setw (7)<<"E";
+
+        cout<<endl;
+
+    }
+    cout<<" \t--------------------------------------------------------------- "<<endl;
+    cout<<" \n\tTOTAL MAHASISWA = "<<jm<<endl;
+
+    getchar();
+}
+
+void tampilkanNama() {
+    system("color c");
+    cout<<"\n\n\t================================================";
+    cout<<"\n\tDIBUAT OLEH:         ANGGRA ALHERA NASMITA UTOMO";
+    cout<<"\n\tNPM        :                  193510105";
+    cout<<"\n\tTANGGAL    :                  11/05/2020";
+    cout<<"\n\t================================================\n";
+    getchar();
+}
+
+void tampilkanProg() {
+    system("cls");
+    system("color a");
+    cout<<"\n\n\t================================================";
+    cout<<"\n\t          PROGRAM MENGHITUNG NILAI AKHIR";
+    cout<<"\n\t         MATA KULIAH PEMOGRAMAN KOMPUTER 2";
+    cout<<"\n\t================================================\n";
+    getchar();
+}
